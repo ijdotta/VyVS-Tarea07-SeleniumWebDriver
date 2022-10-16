@@ -6,7 +6,7 @@ public class HomePage extends PageObject {
 
     public static final String EXPECTED_TITLE_CONTENT = "Bienvenido a OSTH On-Line";
 
-    @FindBy(xpath = "//h3[contains(text(), 'Bienvenido a OSTH On-Line')]")
+    @FindBy(css = "h3")
     private WebElement title;
 
     public HomePage(WebDriver driver) {
