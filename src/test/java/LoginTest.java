@@ -9,25 +9,27 @@ import static org.testng.Assert.*;
 
 import java.time.Duration;
 
-public class TestPlan {
-
-    private final WebDriver driver = new ChromeDriver();
+public class LoginTest {
 
     private static final Duration DEFAULT_TIMEOUT = Duration.ofSeconds(5);
+
+    private WebDriver driver;
+    private LoginForm loginForm;
 
     @BeforeSuite
     public void setPropertyForDriver() {
         System.setProperty("webdriver.chrome.driver", Locations.CHROME_DRIVER_LOCATION);
+        driver = new ChromeDriver();
     }
 
     @BeforeMethod
-    public void getBaseUrl() {
+    public void setUp() {
         driver.get(Locations.BASE_URL);
+        loginForm = new LoginForm(driver);
     }
 
     @Test(testName = "Login empty username, empty password")
     public void loginNoUsernameNorPasswordShouldShowErrorMessage() {
-        LoginForm loginForm = new LoginForm(driver);
         loginForm.enterUsername("");
         loginForm.enterPassword("");
         loginForm.pressLoginButton();
@@ -39,7 +41,6 @@ public class TestPlan {
 
     @Test(testName = "Login valid username, empty password")
     public void loginUsernameWithoutPasswordShouldShowErrorMessage() {
-        LoginForm loginForm = new LoginForm(driver);
         loginForm.enterUsername();
         loginForm.enterPassword("");
         loginForm.pressLoginButton();
@@ -51,7 +52,6 @@ public class TestPlan {
 
     @Test(testName = "Login valid username, valid password")
     public void loginSuccessfully() {
-        LoginForm loginForm = new LoginForm(driver);
         loginForm.enterUsername();
         loginForm.enterPassword();
         loginForm.pressLoginButton();
@@ -65,7 +65,6 @@ public class TestPlan {
 
     @Test(testName = "Login valid username, invalid password")
     public void loginValidUsernameInvalidPasswordShouldShowErrorMessage() {
-        LoginForm loginForm = new LoginForm(driver);
         loginForm.enterUsername();
         loginForm.enterPassword("ppettigrew");
         loginForm.pressLoginButton();
@@ -81,6 +80,6 @@ public class TestPlan {
     }
 
     private void waitForElement(WebElement element) {
-        new WebDriverWait(driver, TestPlan.DEFAULT_TIMEOUT).until(ExpectedConditions.visibilityOf(element));
+        new WebDriverWait(driver, LoginTest.DEFAULT_TIMEOUT).until(ExpectedConditions.visibilityOf(element));
     }
 }

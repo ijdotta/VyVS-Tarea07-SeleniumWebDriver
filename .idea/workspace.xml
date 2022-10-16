@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="524551af-1e97-4686-be64-3a6654b5aa72" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/HomePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Locations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/LoginForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/PageObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestPlan.java" afterDir="false" />
+    <list default="true" id="524551af-1e97-4686-be64-3a6654b5aa72" name="Changes" comment="changed xpath for css">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestPlan.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,9 +111,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="TestNG.TestPlan" />
+        <item itemvalue="TestNG.TestPlan.loginNoUsernameNorPasswordShouldShowErrorMessage" />
         <item itemvalue="TestNG.TestPlan.loginUsernameWithoutPasswordShouldShowErrorMessage" />
         <item itemvalue="TestNG.TestPlan.loginValidUsernameInvalidPasswordShouldShowErrorMessage" />
-        <item itemvalue="TestNG.TestPlan.loginNoUsernameNorPasswordShouldShowErrorMessage" />
         <item itemvalue="TestNG.TestPlan.loginNoUsernameNorPassword" />
       </list>
     </recent_temporary>
@@ -137,8 +127,72 @@
       <option name="presentableId" value="Default" />
       <updated>1665876319683</updated>
       <workItem from="1665876320933" duration="2422000" />
-      <workItem from="1665953009421" duration="7148000" />
+      <workItem from="1665953009421" duration="9767000" />
     </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <created>1665960294567</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665960294567</updated>
+    </task>
+    <task id="LOCAL-00002" summary="pom base, login, home">
+      <created>1665960349605</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665960349605</updated>
+    </task>
+    <task id="LOCAL-00003" summary="test plan">
+      <created>1665960357861</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1665960357861</updated>
+    </task>
+    <task id="LOCAL-00004" summary="made page object abstract">
+      <created>1665960391919</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1665960391919</updated>
+    </task>
+    <task id="LOCAL-00005" summary="made page object abstract">
+      <created>1665960404309</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1665960404309</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feature: wait for condition">
+      <created>1665962091992</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1665962091992</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feature: wait for condition">
+      <created>1665962113117</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1665962113117</updated>
+    </task>
+    <task id="LOCAL-00008" summary="refactor: non static fields">
+      <created>1665962468090</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1665962468090</updated>
+    </task>
+    <task id="LOCAL-00009" summary="changed xpath for css">
+      <created>1665962487288</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1665962487289</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,5 +208,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <MESSAGE value="pom base, login, home" />
+    <MESSAGE value="test plan" />
+    <MESSAGE value="made page object abstract" />
+    <MESSAGE value="feature: wait for condition" />
+    <MESSAGE value="refactor: non static fields" />
+    <MESSAGE value="changed xpath for css" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed xpath for css" />
   </component>
 </project>
