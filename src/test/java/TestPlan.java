@@ -1,5 +1,8 @@
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
 import static org.testng.Assert.*;
@@ -27,9 +30,9 @@ public class TestPlan {
         loginForm.enterPassword("");
         loginForm.pressLoginButton();
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        waitForElement(loginForm.getStateMessageElement());
 
-        assertEquals(loginForm.getStateMessage(), "Atención: Debe ingresar un nombre de usuario");
+        assertEquals(loginForm.getStateMessageText(), "Atención: Debe ingresar un nombre de usuario");
     }
 
     @Test(testName = "Login valid username, empty password")
@@ -39,9 +42,9 @@ public class TestPlan {
         loginForm.enterPassword("");
         loginForm.pressLoginButton();
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        waitForElement(loginForm.getStateMessageElement());
 
-        assertEquals(loginForm.getStateMessage(), "Atención: El password no puede estar vacío");
+        assertEquals(loginForm.getStateMessageText(), "Atención: El password no puede estar vacío");
     }
 
     @Test(testName = "Login valid username, valid password")
@@ -51,10 +54,11 @@ public class TestPlan {
         loginForm.enterPassword();
         loginForm.pressLoginButton();
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
         HomePage homePage = new HomePage(driver);
-        assertEquals(homePage.getTitle(), "Bienvenido a OSTH On-Line");
+
+        waitForElement(homePage.getTitleElement());
+
+        assertEquals(homePage.getTitle(), HomePage.EXPECTED_TITLE_CONTENT);
     }
 
     @Test(testName = "Login valid username, invalid password")
@@ -64,13 +68,17 @@ public class TestPlan {
         loginForm.enterPassword("ppettigrew");
         loginForm.pressLoginButton();
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        waitForElement(loginForm.getStateMessageElement());
 
-        assertEquals(loginForm.getStateMessage(), "Atención: El password ingresado no es válido");
+        assertEquals(loginForm.getStateMessageText(), "Atención: El password ingresado no es válido");
     }
 
     @AfterSuite
     public static void cleanUp() {
         driver.manage().deleteAllCookies();
+    }
+
+    private static void waitForElement(WebElement element) {
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(element));
     }
 }

@@ -43,8 +43,12 @@ public class LoginForm extends PageObject {
         loginButton.click();
     }
 
-    public String getStateMessage() {
+    public String getStateMessageText() {
         return stateMessage.getText();
+    }
+
+    public WebElement getStateMessageElement() {
+        return stateMessage;
     }
 
 }
