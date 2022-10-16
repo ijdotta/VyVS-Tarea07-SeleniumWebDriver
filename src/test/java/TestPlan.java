@@ -1,4 +1,3 @@
-import org.apache.maven.plugin.logging.Log;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
