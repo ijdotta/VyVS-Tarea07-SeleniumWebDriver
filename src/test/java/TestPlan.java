@@ -11,20 +11,22 @@ import java.time.Duration;
 
 public class TestPlan {
 
-    private static final WebDriver driver = new ChromeDriver();
+    private final WebDriver driver = new ChromeDriver();
+
+    private static final Duration DEFAULT_TIMEOUT = Duration.ofSeconds(5);
 
     @BeforeSuite
-    public static void setPropertyForDriver() {
+    public void setPropertyForDriver() {
         System.setProperty("webdriver.chrome.driver", Locations.CHROME_DRIVER_LOCATION);
     }
 
     @BeforeMethod
-    public static void getBaseUrl() {
+    public void getBaseUrl() {
         driver.get(Locations.BASE_URL);
     }
 
     @Test(testName = "Login empty username, empty password")
-    public static void loginNoUsernameNorPasswordShouldShowErrorMessage() {
+    public void loginNoUsernameNorPasswordShouldShowErrorMessage() {
         LoginForm loginForm = new LoginForm(driver);
         loginForm.enterUsername("");
         loginForm.enterPassword("");
@@ -36,7 +38,7 @@ public class TestPlan {
     }
 
     @Test(testName = "Login valid username, empty password")
-    public static void loginUsernameWithoutPasswordShouldShowErrorMessage() {
+    public void loginUsernameWithoutPasswordShouldShowErrorMessage() {
         LoginForm loginForm = new LoginForm(driver);
         loginForm.enterUsername();
         loginForm.enterPassword("");
@@ -48,7 +50,7 @@ public class TestPlan {
     }
 
     @Test(testName = "Login valid username, valid password")
-    public static void loginSuccessfully() {
+    public void loginSuccessfully() {
         LoginForm loginForm = new LoginForm(driver);
         loginForm.enterUsername();
         loginForm.enterPassword();
@@ -62,7 +64,7 @@ public class TestPlan {
     }
 
     @Test(testName = "Login valid username, invalid password")
-    public static void loginValidUsernameInvalidPasswordShouldShowErrorMessage() {
+    public void loginValidUsernameInvalidPasswordShouldShowErrorMessage() {
         LoginForm loginForm = new LoginForm(driver);
         loginForm.enterUsername();
         loginForm.enterPassword("ppettigrew");
@@ -74,11 +76,11 @@ public class TestPlan {
     }
 
     @AfterSuite
-    public static void cleanUp() {
+    public void cleanUp() {
         driver.manage().deleteAllCookies();
     }
 
-    private static void waitForElement(WebElement element) {
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(element));
+    private void waitForElement(WebElement element) {
+        new WebDriverWait(driver, TestPlan.DEFAULT_TIMEOUT).until(ExpectedConditions.visibilityOf(element));
     }
 }
